@@ -3,12 +3,11 @@ import heapq
 import os
 from collections import deque
 
-# --- Class Definitions ---  <- ADD THIS SECTION
+
 
 class TransactionLedger:
-    """A class to manage and record all inventory transactions."""
+   
     def __init__(self):
-        """Initializes the ledger with an empty list of transactions."""
         self.transactions = []
 
     def add_transaction(self, product_id, description, quantity_change):
@@ -41,9 +40,8 @@ class TransactionLedger:
             print(f"{ts_str:<26} {record['product_id']:<12} {record['description']:<20} {record['quantity_change']:+}")
 
 
-# --- Global Data (Constants and State) ---
 
-# Using ALL_CAPS is a convention for global variables that act like constants
+
 INVENTORY = [
     [101, "Gaming Mouse", "Electronics", 75.50, 80],
     [102, "Mechanical Keyboard", "Electronics", 120.00, 50],
@@ -57,18 +55,16 @@ COMPOSITE_PRODUCTS = {
     901: [101, 102, 103]  # Gamer PC Bundle parts
 }
 
-# State variables
-# A human might just call it 'ledger' instead of 'transaction_ledger'
+
 ledger = TransactionLedger() 
 order_queue = deque()
 backorder_queue = []
 delivery_truck = [] # A stack is just a list with append/pop
 
-# Initialize with existing data
+
 for product in INVENTORY:
     ledger.add_transaction(product[0], "initial stock", product[4])
 
-# --- Helper Functions ---
 
 def _clear_screen():
     """Clears the console screen for a cleaner UI."""
@@ -88,7 +84,7 @@ def _pause():
     input("\nPress Enter to continue...")
 
 
-# --- Core Functionality ---
+
 
 def generate_inventory_report():
     """Generates and prints a report of the current inventory status."""
@@ -160,7 +156,7 @@ def place_order():
     except ValueError:
         print("Invalid input. Please use numbers.")
 
-# --- Main Application Loop ---
+#  Main Application Loop 
 
 def main():
     """The main function to run the command-line application."""
@@ -220,3 +216,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
